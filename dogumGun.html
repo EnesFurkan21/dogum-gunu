@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum Günü Sürprizi</title>
+    <style>
+        body {
+      background-color: #fff0f5;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    h1 {
+      color: #e91e63;
+    }
+    .kutlamaKutusu {
+      background-color: #ffc0cb;
+      border: 3px solid #e91e63;
+      padding: 30px;
+      display: inline-block;
+      border-radius: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .kutlamaKutusu:hover {
+      transform: scale(1.05);
+    }
+    #pasta {
+      display: none;
+      margin-top: 20px;
+    }
+    #pasta img {
+      width: 250px;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>🎉 Sürpriz Var 🎉</h1>
+  <p id="mesaj"></p>
+
+  <div id="kutu" class="kutlamaKutusu" onclick="hediyeyiAc()">🎁 Hediyeyi Aç</div>
+
+  <div id="pasta">
+    <h2>🎂 Doğum günün kutlu olsun <span id="isimGoster"></span>!</h2>
+    <img src="https://i.imgur.com/U3vTGjX.png" alt="Doğum Günü Pastası">
+  </div>
+
+<script>
+     // Ayar: Doğum günü bilgileri
+    const kisiIsmi = "XANIM";
+    const dogumGunu = 3; // gün
+    const dogumAyi = 7; // Ağustos (0 = Ocak)
+
+    const bugun = new Date();
+    if (bugun.getDate() === dogumGunu && bugun.getMonth() === dogumAyi) {
+      document.getElementById("mesaj").textContent = "Bugün " + kisiIsmi + " için özel bir gün!";
+    } else {
+      document.getElementById("mesaj").textContent = "Bugün doğum günü değil, ama hoş geldin!";
+      document.getElementById("kutu").style.display = "none";
+    }
+
+    function hediyeyiAc() {
+      document.getElementById("isimGoster").textContent = kisiIsmi;
+      document.getElementById("pasta").style.display = "block";
+      document.getElementById("kutu").style.display = "none";
+    }
+
+</script>
+</body>
+</html>
